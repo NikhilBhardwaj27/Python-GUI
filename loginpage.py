@@ -44,7 +44,7 @@ class login:
 
 		self.frame.pack()
 
-	# Handling evens on button clicks
+	# Handling events on button clicks
 	def click(self):
 		 self.pas = self.passwordE.get()
 		
