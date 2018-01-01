@@ -3,29 +3,28 @@ from tkinter import *
 #creating login page for sample testing
 
 class login:
-
 	def __init__(self,root):
 
 		self.root = root
 
-		self.frame = Frame(self.root,bg='OrangeRed2',width=800,height=600) #creating frame 
+		self.frame = Frame(self.root,bg='OrangeRed2',width=800,height=600)  #creating frame
 
-		self.label = Label(self.frame,text='Log In',bg='OrangeRed2', #creating login Label
+		self.label = Label(self.frame,text='Log In',bg='OrangeRed2', #creating login label
 		fg='honeydew',font=('Georgia',40,'bold')) 
 
-		self.name = Label(self.frame,text='Enter Username : ',   
-		bg='OrangeRed2',fg='honeydew',font=('Arial',20,'bold'))  #creating Username label
+		self.name = Label(self.frame,text='Enter Username : ',   #creating Username label
+		bg='OrangeRed2',fg='honeydew',font=('Arial',20,'bold'))
 
 		self.nameE = Entry(self.frame,bg='honeydew',fg='gray20',
                 width=40,font=('Arial',20,'bold'))
 
 		self.password = Label(self.frame,text='Enter Password : ',bg='OrangeRed2', #creating Password label
-		fg='honeydew',font=('Arial',20,'bold'))                                      
+		fg='honeydew',font=('Arial',20,'bold'))
 
 		self.passwordE = Entry(self.frame,bg='honeydew',fg='gray20',
 		width=40,font=('Arial',20,'bold'),show='*')
 
-		self.button = Button(self.frame,text='Submit',bg='gray80',fg='gray12',   #creating Button
+		self.button = Button(self.frame,text='Submit',bg='gray80',fg='gray12',  #creating button
 		font=('Georgia',20,'bold'),cursor='hand2',command=self.click)
 
 		# packing and layouts
@@ -44,36 +43,39 @@ class login:
 
 		self.frame.pack()
 
-	# Handling events on button clicks
+	 #Event handler
 	def click(self):
 		 self.pas = self.passwordE.get()
-		
-		 self.res = Entry(self.frame,bg='honeydew',fg='gray20',  #creating entry widget for showing password
+
+         #changing background colour
+		 self.frame['bg'] = self.label['bg'] = self.name['bg'] = self.password['bg'] ='purple1' 
+
+		 self.res = Entry(self.frame,bg='honeydew',fg='gray20',
                  width=40,font=('Arial',20,'bold'))
- 
+
 		 self.text1 = Text(self.frame,bg='honeydew',
-		 	fg='gray20',font=('Arial',20,'bold'),wrap=NONE)  #embedding text in entry widget 
+		 	fg='gray20',font=('Arial',20,'bold'),wrap=NONE)  # creating text label to display password
 
 		 self.text1.insert(CURRENT,self.pas)
 
-		 self.label3 = Label(self.frame,text='Your Password is: ',
-		 bg='OrangeRed2',fg='honeydew',font=('Arial',20,'bold'))
-
-		 #packing and layouts
-
+		 self.label3 = Label(self.frame,text='Your Password is: ', #creating Password label
+		 bg='purple1',fg='honeydew',font=('Arial',20,'bold'))
+		   
+         #packing and layouts
 		 self.res.place(x=420,y=450,width=280,height=40)
 
 		 self.label3.place(x=130,y=450,width=280,height=40)
 
 		 self.text1.place(x=420,y=450,width=280,height=40)
-               
-#creating root window
+
+ # creating root window              
 root = Tk()
 
 root.title('Graphics')
 
 root.geometry('800x600')
 
+# creating object to login class
 obj = login(root)
 
 root.mainloop()
